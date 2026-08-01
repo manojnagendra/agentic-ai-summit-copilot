@@ -64,9 +64,15 @@ public/        Icons / PWA assets
 
 ## Notes
 
-Agenda content is curated from the official Berkeley RDI summit schedule and may not include every micro-slot. Prefer the official site / QR “Full Agenda” for last-minute changes.
+Agenda content is curated from the official Berkeley RDI summit Program Schedule tabs and may not include every micro-slot. Prefer the official site / QR “Full Agenda” for last-minute changes.
 
-**Stage mapping note (validated Aug 1, 2026):** Saturday **Nexus** is the Science / Coding / Secure track (Zellerbach Playhouse). The Databricks **Omnigent Meta Harness** workshop (2:15 PM) is on the Enterprise / Math Saturday track → **Compass** (MLK Pauley East). On the RDI site, that Enterprise block is currently shown under the mislabeled “Atlas - Sunday” agenda tab.
+**Validated against official tabs:** Nexus Saturday = Science / Coding / Secure. Omnigent Meta Harness = **Atlas Sunday 2:15**. Compass Saturday = AI Systems / Temporal / Open Agentic Stack.
+
+```bash
+npm test          # agenda validation vs official fixture
+npm run typecheck
+npm run build
+```
 
 ## License
 

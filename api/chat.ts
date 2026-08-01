@@ -16,7 +16,7 @@ function localAnswer(message: string, profile: Profile): string {
     return [
       'Sunday focus for your profile:',
       ...items.map((s) => `• ${s!.start} ${s!.title} (${s!.stage})`),
-      'Protect Databricks fireside + Enterprise AI; hop to Compass evals if Plenary repeats themes.',
+      'Protect Databricks fireside; Omnigent Meta Harness is Atlas 2:15. Hop to Compass evals if Plenary repeats themes.',
     ].join('\n')
   }
 
@@ -28,7 +28,7 @@ function localAnswer(message: string, profile: Profile): string {
     return [
       'Saturday focus for your profile:',
       ...items.map((s) => `• ${s!.start} ${s!.title} (${s!.stage})`),
-      'Watch for Dan Roth (data), capital markets panel, and Databricks Omnigent on Compass (not Nexus) at 2:15 if you can leave Plenary.',
+      'Watch for Dan Roth (data) and the capital markets panel. Omnigent Meta Harness is Atlas Sunday at 2:15 — not on Nexus.',
     ].join('\n')
   }
 

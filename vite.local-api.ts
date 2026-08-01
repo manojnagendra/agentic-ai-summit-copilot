@@ -64,16 +64,21 @@ export function localApiPlugin(): Plugin {
           }
           const vercelRes = wrapResponse(res)
 
-          const routes: Record<string, (req: never, res: never) => Promise<void> | void> = {
-            '/api/plan': planHandler,
-            '/api/insights': insightsHandler,
-            '/api/chat': chatHandler,
-            '/api/health': healthHandler,
+          type LocalHandler = (
+            req: typeof vercelReq,
+            res: typeof vercelRes,
+          ) => void | Promise<unknown>
+
+          const routes: Record<string, LocalHandler> = {
+            '/api/plan': planHandler as LocalHandler,
+            '/api/insights': insightsHandler as LocalHandler,
+            '/api/chat': chatHandler as LocalHandler,
+            '/api/health': healthHandler as LocalHandler,
           }
 
           const handler = routes[pathname]
           if (handler) {
-            await handler(vercelReq as never, vercelRes as never)
+            await handler(vercelReq, vercelRes)
             return
           }
 
