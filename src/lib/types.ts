@@ -24,6 +24,18 @@ export type Talk = {
   title: string
 }
 
+export type SessionKind =
+  | 'keynote'
+  | 'talks'
+  | 'panel'
+  | 'fireside'
+  | 'workshop'
+  | 'break'
+  | 'reception'
+  | 'lunch'
+
+export type FormatFilter = 'all' | 'sessions' | 'workshops'
+
 export type Session = {
   id: string
   day: DayId
@@ -31,11 +43,19 @@ export type Session = {
   start: string
   end: string
   title: string
-  kind: 'keynote' | 'talks' | 'panel' | 'fireside' | 'workshop' | 'break' | 'reception' | 'break'
+  kind: SessionKind
   tags: InterestTag[]
   summary: string
   talks?: Talk[]
   mustSeeFor?: InterestTag[]
+}
+
+const SESSION_KINDS = new Set<SessionKind>(['keynote', 'talks', 'panel', 'fireside'])
+
+export function matchesFormatFilter(session: Session, filter: FormatFilter): boolean {
+  if (filter === 'all') return true
+  if (filter === 'workshops') return session.kind === 'workshop'
+  return SESSION_KINDS.has(session.kind)
 }
 
 export type Profile = {

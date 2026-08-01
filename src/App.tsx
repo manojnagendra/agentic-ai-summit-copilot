@@ -24,8 +24,10 @@ import { dayLabel, formatRange, nowMinutesPT, todayDayId } from './lib/time'
 import {
   INTEREST_OPTIONS,
   PROFILE_PLACEHOLDERS,
+  matchesFormatFilter,
   type ChatMessage,
   type DayId,
+  type FormatFilter,
   type InsightResult,
   type InterestTag,
   type Profile,
@@ -311,6 +313,7 @@ export default function App() {
   const [nowTip, setNowTip] = useState('')
   const [nowMapsUrl, setNowMapsUrl] = useState<string | null>(null)
   const [stageFilter, setStageFilter] = useState<'all' | Session['stage']>('all')
+  const [formatFilter, setFormatFilter] = useState<FormatFilter>('all')
   const [minutes, setMinutes] = useState(() => nowMinutesPT())
 
   useEffect(() => {
@@ -327,14 +330,16 @@ export default function App() {
           item,
           session: sessionById(item.sessionId),
         }))
-        .filter((x): x is { item: (typeof plan.items)[0]; session: Session } => Boolean(x.session)),
-    [plan],
+        .filter((x): x is { item: (typeof plan.items)[0]; session: Session } => Boolean(x.session))
+        .filter((x) => matchesFormatFilter(x.session, formatFilter)),
+    [plan, formatFilter],
   )
 
   const agenda = useMemo(() => {
-    const list = sessionsForDay(day)
-    return stageFilter === 'all' ? list : list.filter((s) => s.stage === stageFilter)
-  }, [day, stageFilter])
+    let list = sessionsForDay(day)
+    if (stageFilter !== 'all') list = list.filter((s) => s.stage === stageFilter)
+    return list.filter((s) => matchesFormatFilter(s, formatFilter))
+  }, [day, stageFilter, formatFilter])
 
   function persistProfile(next: Profile) {
     const saved = { ...next, onboarded: true }
@@ -497,6 +502,25 @@ export default function App() {
               </button>
             </div>
 
+            <div className="filters format-filters" aria-label="Format filter">
+              {(
+                [
+                  ['all', 'All'],
+                  ['sessions', 'Sessions'],
+                  ['workshops', 'Workshops'],
+                ] as const
+              ).map(([id, label]) => (
+                <button
+                  key={id}
+                  type="button"
+                  className={formatFilter === id ? 'active' : ''}
+                  onClick={() => setFormatFilter(id)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
             <div className="content-grid">
               <div className="panel">
                 <div className="row" style={{ justifyContent: 'space-between' }}>
@@ -535,20 +559,26 @@ export default function App() {
 
             <div className="panel">
               <div className="row" style={{ justifyContent: 'space-between', marginBottom: 8 }}>
-                <h3 style={{ margin: 0 }}>Personal agenda</h3>
+                <h3 style={{ margin: 0 }}>
+                  Personal agenda · {plannedSessions.length}
+                </h3>
               </div>
               <div className="session-grid">
-                {plannedSessions.map(({ item, session }, index) => (
-                  <SessionBlock
-                    key={session.id}
-                    session={session}
-                    reason={item.reason}
-                    hop={item.hopNote}
-                    prevStage={plannedSessions[index - 1]?.session.stage}
-                    saved={savedIds.includes(session.id)}
-                    onToggleSave={() => toggleSave(session.id)}
-                  />
-                ))}
+                {plannedSessions.length === 0 ? (
+                  <p className="empty">No {formatFilter === 'workshops' ? 'workshops' : 'sessions'} in your plan for this filter.</p>
+                ) : (
+                  plannedSessions.map(({ item, session }, index) => (
+                    <SessionBlock
+                      key={session.id}
+                      session={session}
+                      reason={item.reason}
+                      hop={item.hopNote}
+                      prevStage={plannedSessions[index - 1]?.session.stage}
+                      saved={savedIds.includes(session.id)}
+                      onToggleSave={() => toggleSave(session.id)}
+                    />
+                  ))
+                )}
               </div>
             </div>
 
@@ -557,19 +587,21 @@ export default function App() {
                 <h3>High-signal conflicts</h3>
                 <p className="muted">Worth knowing even if you can’t be in two places.</p>
                 <div className="session-grid">
-                  {plan.skippedHighlights.map((s) => {
-                    const session = sessionById(s.sessionId)
-                    if (!session) return null
-                    return (
+                  {plan.skippedHighlights
+                    .map((s) => ({ item: s, session: sessionById(s.sessionId) }))
+                    .filter(
+                      (x): x is { item: (typeof plan.skippedHighlights)[0]; session: Session } =>
+                        Boolean(x.session) && matchesFormatFilter(x.session!, formatFilter),
+                    )
+                    .map(({ item, session }) => (
                       <SessionBlock
                         key={session.id}
                         session={session}
-                        reason={s.reason}
+                        reason={item.reason}
                         saved={savedIds.includes(session.id)}
                         onToggleSave={() => toggleSave(session.id)}
                       />
-                    )
-                  })}
+                    ))}
                 </div>
               </div>
             ) : null}
@@ -594,7 +626,25 @@ export default function App() {
                 Sunday
               </button>
             </div>
-            <div className="filters">
+            <div className="filters format-filters" aria-label="Format filter">
+              {(
+                [
+                  ['all', 'All'],
+                  ['sessions', 'Sessions'],
+                  ['workshops', 'Workshops'],
+                ] as const
+              ).map(([id, label]) => (
+                <button
+                  key={id}
+                  type="button"
+                  className={formatFilter === id ? 'active' : ''}
+                  onClick={() => setFormatFilter(id)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <div className="filters" aria-label="Stage filter">
               {(['all', 'plenary', 'nexus', 'atlas', 'compass', 'campus'] as const).map((s) => (
                 <button
                   key={s}
@@ -608,18 +658,27 @@ export default function App() {
             </div>
             <div className="panel">
               <h3>
-                Full {dayLabel(day)} · {agenda.length} blocks
+                Full {dayLabel(day)} · {agenda.length}{' '}
+                {formatFilter === 'workshops'
+                  ? 'workshops'
+                  : formatFilter === 'sessions'
+                    ? 'sessions'
+                    : 'blocks'}
               </h3>
               <div className="session-grid">
-                {agenda.map((session, index) => (
-                  <SessionBlock
-                    key={session.id}
-                    session={session}
-                    prevStage={agenda[index - 1]?.stage}
-                    saved={savedIds.includes(session.id)}
-                    onToggleSave={() => toggleSave(session.id)}
-                  />
-                ))}
+                {agenda.length === 0 ? (
+                  <p className="empty">Nothing matches these filters.</p>
+                ) : (
+                  agenda.map((session, index) => (
+                    <SessionBlock
+                      key={session.id}
+                      session={session}
+                      prevStage={agenda[index - 1]?.stage}
+                      saved={savedIds.includes(session.id)}
+                      onToggleSave={() => toggleSave(session.id)}
+                    />
+                  ))
+                )}
               </div>
             </div>
           </>

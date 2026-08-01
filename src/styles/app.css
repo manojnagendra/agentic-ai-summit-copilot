@@ -691,6 +691,23 @@ a.btn {
   border-color: transparent;
 }
 
+.format-filters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: visible;
+}
+
+.format-filters button {
+  flex: 1;
+  text-align: center;
+  border-radius: 12px;
+  padding: 9px 10px;
+}
+
+.format-filters button.active {
+  background: var(--accent);
+}
+
 .empty {
   text-align: center;
   padding: 24px 8px;
