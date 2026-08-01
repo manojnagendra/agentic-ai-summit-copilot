@@ -1,10 +1,25 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { SESSIONS } from './agenda.js'
-import { OFFICIAL_ABSENCES, OFFICIAL_ANCHORS } from './officialAgenda.fixture.js'
+import {
+  FORBIDDEN_SPEAKERS,
+  OFFICIAL_ABSENCES,
+  OFFICIAL_ANCHORS,
+  OFFICIAL_WORKSHOPS,
+} from './officialAgenda.fixture.js'
 
 function normalize(s: string): string {
   return s.toLowerCase()
+}
+
+function sessionHaystack(session: (typeof SESSIONS)[number]): string {
+  return normalize(
+    [
+      session.title,
+      session.summary,
+      ...(session.talks ?? []).flatMap((t) => [t.speaker, t.title, t.role ?? '']),
+    ].join(' '),
+  )
 }
 
 function sessionMatchesAnchor(
@@ -14,11 +29,7 @@ function sessionMatchesAnchor(
   if (session.day !== anchor.day || session.stage !== anchor.stage || session.start !== anchor.start) {
     return false
   }
-  const haystack = normalize(
-    [session.title, session.summary, ...(session.talks ?? []).flatMap((t) => [t.speaker, t.title, t.role ?? ''])].join(
-      ' ',
-    ),
-  )
+  const haystack = sessionHaystack(session)
   if (!haystack.includes(normalize(anchor.titleIncludes))) return false
   if (anchor.speakerIncludes && !haystack.includes(normalize(anchor.speakerIncludes))) return false
   return true
@@ -39,14 +50,23 @@ describe('agenda vs official RDI Program Schedule tabs', () => {
     assert.deepEqual(missing, [], `Missing official anchors:\n${missing.join('\n')}`)
   })
 
+  it('covers every named official workshop with lead speaker', () => {
+    const missing: string[] = []
+    for (const ws of OFFICIAL_WORKSHOPS) {
+      const hit = SESSIONS.find((s) => sessionMatchesAnchor(s, ws))
+      if (!hit) {
+        missing.push(`${ws.day} ${ws.stage} ${ws.start} ${ws.titleIncludes} / ${ws.speakerIncludes ?? ''}`)
+      }
+    }
+    assert.deepEqual(missing, [], `Missing workshops:\n${missing.join('\n')}`)
+  })
+
   it('does not put Omnigent on Nexus or Compass Saturday', () => {
     for (const rule of OFFICIAL_ABSENCES) {
-      const bad = SESSIONS.filter(
-        (s) =>
-          s.day === rule.day &&
-          s.stage === rule.stage &&
-          normalize(s.title).includes(normalize(rule.titleIncludes)),
-      )
+      const bad = SESSIONS.filter((s) => {
+        if (s.day !== rule.day || s.stage !== rule.stage) return false
+        return sessionHaystack(s).includes(normalize(rule.titleIncludes))
+      })
       assert.equal(bad.length, 0, `${rule.reason}; found: ${bad.map((s) => s.id).join(', ')}`)
     }
   })
@@ -60,6 +80,13 @@ describe('agenda vs official RDI Program Schedule tabs', () => {
     assert.equal(omni!.kind, 'workshop')
     const speakers = (omni!.talks ?? []).map((t) => t.speaker).join(' ')
     assert.match(speakers, /Aravind Segu/i)
+  })
+
+  it('excludes speakers removed from the official schedule', () => {
+    const blob = SESSIONS.map(sessionHaystack).join(' ')
+    for (const name of FORBIDDEN_SPEAKERS) {
+      assert.equal(blob.includes(normalize(name)), false, `Unexpected speaker still in agenda: ${name}`)
+    }
   })
 
   it('has unique session ids', () => {

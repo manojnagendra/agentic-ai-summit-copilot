@@ -227,8 +227,14 @@ export const SESSIONS: Session[] = [
       { speaker: 'Jianfeng Gao', role: 'Microsoft Research', title: 'Agentic Modeling via Internalizing Agent Harnesses' },
       { speaker: 'Sanja Fidler', role: 'U Toronto / ex-Nvidia', title: 'World Models for Physical AI Simulation' },
       { speaker: 'Giambattista Parascandolo', role: 'OpenAI', title: 'When Language Models Learned to Reason' },
-      { speaker: 'Aditya Grover', role: 'Inception Labs', title: 'Diffusion LLMs & token efficiency' },
-      { speaker: 'Daytona workshop', title: 'Turning Chatbots into Agents: Modern RL' },
+      { speaker: 'Aditya Grover', role: 'Inception Labs', title: 'Redefining the Token Efficiency Frontier with Diffusion LLMs' },
+      {
+        time: '10:50',
+        speaker: 'Lovre Pesut',
+        role: 'Daytona',
+        title: 'Workshop: Turning Chatbots into Agents: What Modern RL Looks Like',
+      },
+      { time: '10:50', speaker: 'Muhammad Hashmi', role: 'Daytona', title: 'Daytona RL workshop' },
     ],
   },
   {
@@ -237,10 +243,34 @@ export const SESSIONS: Session[] = [
     stage: 'atlas',
     start: '13:30',
     end: '15:30',
-    title: 'Robotics & World Models (Atlas)',
+    title: 'Robotics & World Models + Lambda Workshop',
     kind: 'workshop',
     tags: ['robotics', 'safety'],
-    summary: 'Sony AI, Waymo, Berkeley + Lambda open-source agent investigations workshop.',
+    summary:
+      'Peter Stone, Waymo, Berkeley robotics talks, then Lambda open-source agent investigations workshop (2:30).',
+    talks: [
+      {
+        speaker: 'Peter Stone',
+        role: 'Sony AI; UT Austin',
+        title: 'Outplaying Elite Table Tennis Players with an Autonomous Robot',
+      },
+      {
+        speaker: 'Vincent Vanhoucke',
+        role: 'Waymo',
+        title: 'Trustworthy Agents in the Real World',
+      },
+      { speaker: 'Trevor Darrell', role: 'UC Berkeley', title: 'Real-World Reasoning Agents' },
+      { speaker: 'Manmohan Chandraker', role: 'UC San Diego', title: 'Making Autonomy Autonomous' },
+      { speaker: 'Bolei Zhou', role: 'UCLA; Coco Robotics', title: 'Scaling Sidewalk Autonomy with World Models' },
+      {
+        time: '14:30',
+        speaker: 'Devina Jain',
+        role: 'Lambda',
+        title: 'Workshop: Open-Source Agent Investigations (Security Arena, Distilled Traces, Auto-Optimization)',
+      },
+      { time: '14:30', speaker: 'Zach Mueller', role: 'Lambda', title: 'Lambda open-source agent workshop' },
+      { time: '14:30', speaker: 'Chuan Li', role: 'Lambda', title: 'Lambda open-source agent workshop' },
+    ],
   },
   {
     id: 'sat-a-replit',
@@ -248,11 +278,11 @@ export const SESSIONS: Session[] = [
     stage: 'atlas',
     start: '15:30',
     end: '16:30',
-    title: 'Workshop: Building Agentic Apps with Replit Agent',
+    title: 'Workshop: Building Agentic Apps End-to-End with Replit Agent',
     kind: 'workshop',
     tags: ['coding-agents', 'developer-platforms'],
     summary: 'Hands-on Replit Agent workshop — useful if you want to ship demos fast.',
-    talks: [{ speaker: 'Brandon Middleton', role: 'Replit', title: 'End-to-end agentic apps' }],
+    talks: [{ speaker: 'Brandon Middleton', role: 'Head of Education, Replit', title: 'Building Agentic Apps End-to-End' }],
   },
   {
     id: 'sat-a-frameworks',
@@ -291,11 +321,28 @@ export const SESSIONS: Session[] = [
         role: 'MIT; Unreasonable Labs',
         title: 'Superintelligence for Scientific Discovery',
       },
-      { speaker: 'James Zou', role: 'Stanford', title: 'Collective Intelligence of Agents for Science' },
+      { speaker: 'James Zou', role: 'Stanford', title: 'Harnessing the Collective Intelligence of Agents for Science' },
+      { speaker: 'Eric Ho', role: 'Goodfire', title: 'Unlocking Scientific Abundance by Learning from Superhuman AI' },
       {
-        speaker: 'AMD workshop',
+        speaker: 'Andrew Schoen',
+        role: 'NEA',
+        title: 'Solving Quantum Science Problems with SMART',
+      },
+      { speaker: 'Mengdi Wang', role: 'Princeton', title: 'LabOS: The AI-XR Co-Scientist' },
+      { speaker: 'Rose Yu', role: 'UC San Diego; GistFlow', title: 'Towards AI Co-Scientists' },
+      {
+        speaker: 'Jonathan Welch',
+        role: 'Albert Invent',
+        title: 'Building AI for the Physical World',
+      },
+      {
+        time: '11:00',
+        speaker: 'Mahdi Ghodsi',
+        role: 'AMD',
         title: 'Building a Token-Efficient OpenClaw Agentic System',
       },
+      { time: '11:00', speaker: 'Satya Devineni', role: 'AMD', title: 'AMD OpenClaw workshop' },
+      { time: '11:00', speaker: 'Eda Zhou', role: 'AMD', title: 'AMD OpenClaw workshop' },
     ],
   },
   {
@@ -312,8 +359,16 @@ export const SESSIONS: Session[] = [
       'Cognition SWE agents, computer-use for the web, then Fetcherr on quantitative decision agents.',
     talks: [
       { speaker: 'Silas Alberti', role: 'Cognition', title: 'Scaling RL for Coding Agents (SWE-1.7)' },
-      { speaker: 'Dhruv Batra', role: 'Yutori', title: 'Computer-Use Models Will Agentify the Web' },
-      { speaker: 'Fetcherr', title: 'Market Models for Quantitative Decision Agents' },
+      { speaker: 'Dhruv Batra', role: 'Yutori', title: 'Computer-Use Models Will Agentify the Web, Not APIs' },
+      { speaker: 'Shamir Abdul Aziz', role: 'Microsoft', title: 'Zero Ops - Agents Operate, Humans Govern' },
+      { speaker: 'Krishnakumar Sharma', role: 'Omokai', title: 'Agentic Coding, the Boring Way' },
+      {
+        time: '14:05',
+        speaker: 'Uri Yerushalmi',
+        role: 'Fetcherr',
+        title: 'Workshop by Fetcherr — Market Models for Quantitative Decision Agents',
+      },
+      { time: '14:05', speaker: 'Hadar Sharvit', role: 'Fetcherr', title: 'Architecting Quantitative Decision Agents' },
     ],
   },
   {
@@ -327,6 +382,23 @@ export const SESSIONS: Session[] = [
     tags: ['finance', 'enterprise', 'safety'],
     mustSeeFor: ['finance'],
     summary: 'Oracle Health, mental-health orchestration, Nvidia Nemotron in finance.',
+    talks: [
+      {
+        speaker: 'Krishnaram Kenthapadi',
+        role: 'Oracle Health',
+        title: 'Trustworthy Multi-Agent AI Systems for Healthcare',
+      },
+      {
+        speaker: 'Venkat Bhat',
+        role: 'University of Toronto',
+        title: 'Agentic AI Applications for Mental Health',
+      },
+      {
+        speaker: 'Shaghayegh Gharghabi',
+        role: 'NVIDIA',
+        title: 'Agentic Post-Training for Nemotron in Finance',
+      },
+    ],
   },
   {
     id: 'sat-c-secure',
@@ -339,6 +411,19 @@ export const SESSIONS: Session[] = [
     tags: ['safety', 'enterprise'],
     mustSeeFor: ['safety'],
     summary: 'Runtime trust, guardrails, Anthropic/OpenAI security research, Intuit rogue agents.',
+    talks: [
+      { speaker: 'Jon-Rav Shende', role: 'Thales Group', title: 'Observability Is Not Governance' },
+      { speaker: 'Bo Li', role: 'Virtue AI; UIUC', title: 'Securing AI Agents' },
+      { speaker: 'Eric Wallace', role: 'OpenAI', title: 'Training Robust Agents' },
+      { speaker: 'Milad Nasr', role: 'Anthropic', title: 'End-to-End Security Research with a Language Model' },
+      { speaker: 'Itsik Mantin', role: 'Intuit', title: 'When Good Agents Go Rogue' },
+      {
+        speaker: 'John A McDermid',
+        role: 'University of York',
+        title: 'Safety and Security of Agentic AI',
+      },
+      { speaker: 'Mohamed Nabeel', role: 'Palo Alto Networks', title: 'Ghost in the Web Store' },
+    ],
   },
   {
     id: 'sat-c-eval-ws',
@@ -365,9 +450,20 @@ export const SESSIONS: Session[] = [
     mustSeeFor: ['infrastructure'],
     summary: 'Ion Stoica keynote, Lightmatter, IBM, Kubernetes-for-agents + Circle wallet workshop.',
     talks: [
-      { speaker: 'Ion Stoica', role: 'Databricks / Anyscale / UC Berkeley', title: 'AI Systems keynote' },
+      {
+        speaker: 'Ion Stoica',
+        role: 'Databricks / Anyscale / UC Berkeley',
+        title: 'The Limits of AI Coding Agents: Two Fundamental Gaps in Agentic Software Engineering',
+      },
+      { speaker: 'Nick Harris', role: 'Lightmatter', title: 'Photonics Is the Future of Computing' },
+      { speaker: 'Gosia Steinder', role: 'IBM Research', title: 'Beyond Harnesses – Platform Solutions for Agents' },
       { speaker: 'Tim Hockin', role: 'Google', title: 'Is Kubernetes Good for Agents?' },
-      { speaker: 'Circle workshop', title: 'Why Your AI Agent Needs a Wallet' },
+      {
+        time: '10:45',
+        speaker: 'Harshal Bhangale',
+        role: 'Circle',
+        title: 'Workshop: Why Your AI Agent Needs a Wallet (Arc / USDC nanopayments)',
+      },
     ],
   },
   {
@@ -380,6 +476,33 @@ export const SESSIONS: Session[] = [
     kind: 'workshop',
     tags: ['developer-platforms', 'infrastructure', 'coding-agents'],
     summary: 'OpenSage, Agentic Web, small LLMs for coding, Temporal reliability workshop.',
+    talks: [
+      { speaker: 'Wenbo Guo', role: 'UCSB', title: 'OpenSage: Next Generation of Agentic AI' },
+      { speaker: 'Ramesh Raskar', role: 'MIT', title: 'The Agentic Web and the Bazaar Era of AI' },
+      {
+        speaker: 'Shiva Kasiviswanthan',
+        role: 'Amazon Web Services',
+        title: 'Toward Adaptive Agent Frameworks',
+      },
+      {
+        speaker: 'Tanya Roosta',
+        role: 'AMD, Berkeley',
+        title: 'Information Retrieval in the Age of Agentic AI',
+      },
+      { speaker: 'Denis Akhiyarov', role: 'ServiceNow', title: 'Are Small LLMs Ready for Coding Agents?' },
+      {
+        speaker: 'Nilou Salehi',
+        role: 'UC Berkeley',
+        title: 'Agent Learning Requires Compressing Information into an Executable Reasoning Structure',
+      },
+      { speaker: 'Johann Schleier-Smith', role: 'Temporal', title: 'Systems Foundations for Agentic AI' },
+      {
+        time: '14:20',
+        speaker: 'Nikolay Advolodkin',
+        role: 'Temporal',
+        title: 'Workshop: Build AI Agents That Survive Failure',
+      },
+    ],
   },
   {
     id: 'sun-a-foundations',
@@ -391,6 +514,35 @@ export const SESSIONS: Session[] = [
     kind: 'workshop',
     tags: ['foundations', 'developer-platforms'],
     summary: 'Memory for long-horizon agents, RSI optimization, Linux Foundation open stack workshop.',
+    talks: [
+      {
+        speaker: 'Doga Kerestecioglu',
+        role: 'Microsoft',
+        title: 'Mindful Agents: Human-Inspired Memories for Long-Horizon Tasks',
+      },
+      { speaker: 'Ian Fischer', role: 'Poetiq', title: 'An Optimization Perspective on Recursive Self-Improvement' },
+      { speaker: 'Yu Su', role: 'NeoCognition; OSU', title: 'Intelligence + Continual Learning = Expertise' },
+      {
+        speaker: 'Furong Huang',
+        role: 'University of Maryland',
+        title: 'Reasoning as Control: Adaptive Test-Time Compute for Planning Agents',
+      },
+      {
+        speaker: 'Raja Giryes',
+        role: 'Tel Aviv University',
+        title: 'On the Visual Capabilities of Multimodal Models',
+      },
+      {
+        time: '16:10',
+        speaker: 'Matt White',
+        role: 'Linux Foundation / PyTorch Foundation',
+        title: 'Workshop: The Open Agentic Stack',
+      },
+      { time: '16:10', speaker: 'Ben Burtenshaw', role: 'Hugging Face', title: 'Open Source Agentic RL Environment' },
+      { time: '16:10', speaker: 'Daniel-Han Chen', role: 'Unsloth', title: 'Making Open Models Not Suck' },
+      { time: '16:10', speaker: 'Shang Yang', role: 'RadixArk', title: 'Miles: An Intro to Enterprise Facing RL' },
+      { time: '16:10', speaker: 'Romil Bhardwaj', role: 'SkyPilot', title: 'AI Needs an Open Compute Layer' },
+    ],
   },
 
   // ——— Sunday Plenary ———
@@ -404,6 +556,14 @@ export const SESSIONS: Session[] = [
     kind: 'keynote',
     tags: ['career'],
     summary: 'Jennifer Chayes (CDSS) and Dawn Song open day two.',
+    talks: [
+      { speaker: 'Jennifer Chayes', role: 'Dean of CDSS, UC Berkeley', title: 'Opening' },
+      {
+        speaker: 'Dawn Song',
+        role: 'UC Berkeley; Berkeley RDI; Meta Superintelligence Labs',
+        title: 'Opening',
+      },
+    ],
   },
   {
     id: 'sun-p-enterprise',
@@ -468,14 +628,17 @@ export const SESSIONS: Session[] = [
     summary: 'Personalized universal agents, collaborative AI, continual learning frontiers.',
     talks: [
       { speaker: 'Richard Socher', role: 'Recursive Superintelligence', title: 'The Eureka Machine' },
-      { speaker: 'Ed Chi', role: 'Google DeepMind', title: 'Future of Personalized Universal Agents' },
+      { speaker: 'Ed Chi', role: 'Google DeepMind', title: 'The Future of Personalized Universal Agents' },
       {
         speaker: 'Ekin Dogus Cubuk',
         role: 'Periodic Labs',
-        title: 'Combining Experiments, LLMs, and Theory to Discover Quantum Materials',
+        title: 'Combining Experiments, Large Language Models, and Theory to Discover Quantum Materials',
       },
-      { speaker: 'Andi Peng', role: 'Humans&', title: 'Collaborative AI in the Era of Agents' },
-      { speaker: 'Igor Babuschkin', role: 'River AI', title: 'Personal AI and Continual Learning' },
+      {
+        speaker: 'Igor Babuschkin',
+        role: 'River AI',
+        title: 'Personal AI and Continual Learning: New Frontiers in Agentic AI',
+      },
     ],
   },
   {
@@ -557,7 +720,14 @@ export const SESSIONS: Session[] = [
       { speaker: 'Vincent Sunn Chen', role: 'Snorkel AI', title: 'Benchmarking Agents' },
       { speaker: 'David Hsu', role: 'Retool', title: 'Governance Is the Bottleneck to AI' },
       { speaker: 'Dan Klein', role: 'UC Berkeley; Scaled Cognition', title: 'Superintelligence vs. Super-Reliability' },
-      { speaker: 'Ema workshop', title: 'From Assistants to AI Employees' },
+      {
+        time: '11:10',
+        speaker: 'Anushka Pathak',
+        role: 'Ema',
+        title: 'Workshop: From Assistants to AI Employees',
+      },
+      { time: '11:10', speaker: 'Soham Shah', role: 'Ema', title: 'Ema AI employees workshop' },
+      { time: '11:10', speaker: 'Eric Victorson', role: 'Ema', title: 'Ema AI employees workshop' },
     ],
   },
   {
@@ -637,7 +807,7 @@ export const SESSIONS: Session[] = [
     stage: 'compass',
     start: '10:00',
     end: '12:10',
-    title: 'AI Safety',
+    title: 'AI Safety + SUSE Workshop',
     kind: 'workshop',
     tags: ['safety', 'enterprise'],
     mustSeeFor: ['safety', 'enterprise'],
@@ -645,8 +815,30 @@ export const SESSIONS: Session[] = [
       'Deepfakes, regulated-domain trust (Vanguard), Credo AI governance-as-code + SUSE workshop.',
     talks: [
       { speaker: 'Chris Bregler', role: 'Google DeepMind', title: 'Deepfakes and More' },
+      {
+        speaker: 'Kathy Baxter',
+        role: 'Salesforce',
+        title: 'The Human in the Loop: Navigating the Realities of AI for Employee Flourishing',
+      },
       { speaker: 'Lovedeep Gondara', role: 'Vanguard', title: 'Trustworthy Agentic AI in Regulated Domains' },
-      { speaker: 'Navrina Singh', role: 'Credo AI', title: 'Governance as Code for the Agentic Enterprise' },
+      {
+        speaker: 'Alex Obadia',
+        role: 'ARIA',
+        title: 'A Society of Agents: Trust at Machine Speed, from Bits to Atoms',
+      },
+      { speaker: 'Neil Lawrence', role: 'Trent AI', title: 'Viable Systems, Judgment, and AI Safety' },
+      {
+        speaker: 'Huan Sun',
+        role: 'The Ohio State University',
+        title: 'Continual Learning and Safety in Computer-Use Agents',
+      },
+      { speaker: 'Navrina Singh', role: 'Credo AI', title: 'Earning Autonomy: Governance as Code' },
+      {
+        time: '11:00',
+        speaker: 'Jeff Price',
+        role: 'SUSE',
+        title: 'Workshop: Infrastructure You Can Talk To',
+      },
     ],
   },
   {
@@ -660,8 +852,21 @@ export const SESSIONS: Session[] = [
     tags: ['infrastructure', 'enterprise'],
     summary: 'Nvidia, Postman production infra, AWS, Together AI orchestration.',
     talks: [
-      { speaker: 'Ankit Sobti', role: 'Postman', title: 'From Agent Demos to Production' },
       { speaker: 'Jun Yang', role: 'NVIDIA', title: 'Using Agents to Build Production AI Systems' },
+      { speaker: 'Ankit Sobti', role: 'Postman', title: 'From Agent Demos to Production' },
+      { speaker: 'Rahul Bakshi', role: 'Amazon', title: 'Scale Compute to the Signal' },
+      { speaker: 'John Liu', role: 'AWS', title: 'Looping for Model Optimization' },
+      {
+        speaker: 'Jongryool Kim',
+        role: 'SK hynix',
+        title: 'Disaggregated LLM Serving with Shared Memory KV Cache at Rack-Scale',
+      },
+      {
+        speaker: 'Ben Athiwaratkun',
+        role: 'Together AI',
+        title: 'Unified Orchestration System for Verifier-Free Evolution',
+      },
+      { speaker: 'Tushar Krishna', role: 'Georgia Tech; InfraVana', title: 'How Agentic AI Is Rewriting AI Infrastructure' },
     ],
   },
   {
@@ -674,6 +879,27 @@ export const SESSIONS: Session[] = [
     kind: 'talks',
     tags: ['enterprise', 'coding-agents'],
     summary: 'Factory AI, LinkedIn long-running agents, BMW orchestration, SaaS→agentic transitions.',
+    talks: [
+      { speaker: 'Eno Reyes', role: 'Factory AI', title: 'Building the Software Factory' },
+      { speaker: 'Ankit Goyal', role: 'LinkedIn', title: 'Infrastructure for Long-Running Agents' },
+      { speaker: 'Daniel Homola', role: 'BMW Research', title: 'From Multi-Agent Patterns to Reliable Orchestration' },
+      {
+        speaker: 'Christopher Petrillo',
+        role: 'Wikimedia Foundation',
+        title: "Agentic AI and the Human Core: Scaling Wikimedia's Participatory Model",
+      },
+      { speaker: 'Nayaki Nayyar', role: 'Siteimprove', title: 'Transforming from SaaS to an Agentic Enterprise' },
+      {
+        speaker: 'Surbhi Rathore',
+        role: 'Invoca',
+        title: 'Agentic AI Is a UX Problem Disguised as a Technology Breakthrough',
+      },
+      {
+        speaker: 'Daniel Fink',
+        role: 'Cognizant',
+        title: 'Scaling Up Config-Driven Multi-Agent Networks with Neuro SAN',
+      },
+    ],
   },
   {
     id: 'sun-c-evals',
@@ -686,11 +912,29 @@ export const SESSIONS: Session[] = [
     tags: ['evals', 'data-platforms', 'enterprise'],
     mustSeeFor: ['evals', 'data-platforms'],
     summary:
-      'Scale AI enterprise exams, Postman API reliability, Hex data benchmarks, Genentech AIDaR data readiness.',
+      'DigitalOcean keynote, Scale AI enterprise exams, Postman API reliability, Hex data benchmarks, Genentech AIDaR.',
     talks: [
+      {
+        time: '14:30',
+        speaker: 'Debarshi Raha',
+        role: 'DigitalOcean',
+        title: 'Preferences > Benchmarks: Model Routing for How Teams Actually Build',
+      },
       { speaker: 'Yuan (Emily) Xue', role: 'Scale AI', title: 'The Exam Before Enterprise Deployment' },
+      {
+        speaker: 'Chenguang Wang',
+        role: 'UC Santa Cruz; Scale AI',
+        title: 'From Training to Evaluation: Open Recipes for Building Agentic AI',
+      },
+      {
+        speaker: 'Zelin Wan',
+        role: 'Postman',
+        title: 'Measuring API Agent Reliability for Long-Horizon Tasks in Production',
+      },
+      { speaker: 'Rahul Krishna', role: 'IBM', title: 'ScarfBench: Can Agents Migrate Enterprise Java?' },
       { speaker: 'Grace Tang', role: 'Hex', title: "Data Benchmarks: Where Everything's Made Up" },
       { speaker: 'Arindam Sett', role: 'Genentech', title: 'AIDaR: AI Data Readiness Evaluations' },
+      { speaker: 'Scott Clark', role: 'Distributional', title: 'How Better Evals Can Bring Abundance' },
       { speaker: 'Aayush Agrawal', role: 'Uber', title: 'Evals: The Engine for Agent Improvement' },
     ],
   },
