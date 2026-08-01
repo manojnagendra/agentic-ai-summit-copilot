@@ -274,86 +274,35 @@ export const SESSIONS: Session[] = [
     ],
   },
 
-  // ——— Saturday Nexus ———
-  {
-    id: 'sat-n-enterprise',
-    day: 'saturday',
-    stage: 'nexus',
-    start: '10:00',
-    end: '12:10',
-    title: 'Enterprise AI (Nexus)',
-    kind: 'workshop',
-    tags: ['enterprise', 'evals', 'career'],
-    mustSeeFor: ['enterprise'],
-    summary:
-      'Ironclad, AI21, Microsoft, Snorkel, Retool, Scaled Cognition + Ema “AI employees” workshop.',
-    talks: [
-      { speaker: 'Sunita Verma', role: 'CTO, Ironclad', title: 'Rate Limiter on AI Adoption Is Organizational' },
-      { speaker: 'Ori Goshen', role: 'AI21', title: 'Self Optimizing Agents' },
-      { speaker: 'David Hsu', role: 'Retool', title: 'Governance Is the Bottleneck to AI' },
-      { speaker: 'Vincent Sunn Chen', role: 'Snorkel AI', title: 'Benchmarking Agents' },
-      { speaker: 'Ema workshop', title: 'From Assistants to AI Employees' },
-    ],
-  },
-  {
-    id: 'sat-n-evals',
-    day: 'saturday',
-    stage: 'nexus',
-    start: '13:00',
-    end: '13:45',
-    title: 'Agent Evaluation & Benchmarks',
-    kind: 'talks',
-    tags: ['evals', 'enterprise'],
-    mustSeeFor: ['evals'],
-    summary: 'LLMArena, IBM, Scale AI, Redis on evals-first agent reliability.',
-    talks: [
-      { speaker: 'Anastasios Angelopoulos', role: 'LLMArena', title: 'Agent Arena: Causal Evaluations' },
-      { speaker: 'Michal Shmueli-Scheuer', role: 'IBM Research', title: 'Ready for General Agents?' },
-      { speaker: 'Priya Ponnapalli', role: 'Scale AI', title: 'Evals-First Approach' },
-      { speaker: 'Srijith Rajamohan', role: 'Redis', title: 'Spec-Driven Agents' },
-    ],
-  },
-  {
-    id: 'sat-n-math',
-    day: 'saturday',
-    stage: 'nexus',
-    start: '13:45',
-    end: '14:15',
-    title: 'AI for Math',
-    kind: 'talks',
-    tags: ['science', 'foundations'],
-    summary: 'Long-horizon sparse-reward tasks and math/software alignment.',
-  },
-  {
-    id: 'sat-n-databricks',
-    day: 'saturday',
-    stage: 'nexus',
-    start: '14:15',
-    end: '15:15',
-    title: 'Workshop: Omnigent — Meta Harness by Databricks',
-    kind: 'workshop',
-    tags: ['data-platforms', 'developer-platforms', 'enterprise'],
-    mustSeeFor: ['data-platforms'],
-    summary: 'Databricks Omnigent workshop — high signal for DE/BI/data-platform builders.',
-    talks: [{ speaker: 'Aravind Segu', role: 'Databricks', title: 'Omnigent meta harness' }],
-  },
-
-  // ——— Saturday Compass ———
+  // ——— Saturday Nexus (official Nexus tab: Science / Coding / Secure) ———
   {
     id: 'sat-c-science',
     day: 'saturday',
-    stage: 'compass',
+    stage: 'nexus',
     start: '10:00',
     end: '12:10',
     title: 'AI for Science',
     kind: 'talks',
     tags: ['science', 'foundations'],
-    summary: 'Multi-agent scientific discovery, LabOS, chemistry agents + AMD OpenClaw workshop.',
+    summary:
+      'Multi-agent scientific discovery, LabOS, chemistry agents + AMD OpenClaw workshop. Nexus Stage (Zellerbach Playhouse).',
+    talks: [
+      {
+        speaker: 'Markus J. Buehler',
+        role: 'MIT; Unreasonable Labs',
+        title: 'Superintelligence for Scientific Discovery',
+      },
+      { speaker: 'James Zou', role: 'Stanford', title: 'Collective Intelligence of Agents for Science' },
+      {
+        speaker: 'AMD workshop',
+        title: 'Building a Token-Efficient OpenClaw Agentic System',
+      },
+    ],
   },
   {
     id: 'sat-c-coding',
     day: 'saturday',
-    stage: 'compass',
+    stage: 'nexus',
     start: '13:30',
     end: '15:05',
     title: 'Coding & Web Agents + Fetcherr Workshop',
@@ -371,7 +320,7 @@ export const SESSIONS: Session[] = [
   {
     id: 'sat-c-fin-health',
     day: 'saturday',
-    stage: 'compass',
+    stage: 'nexus',
     start: '15:05',
     end: '15:30',
     title: 'Agentic AI in Finance & Healthcare',
@@ -383,7 +332,7 @@ export const SESSIONS: Session[] = [
   {
     id: 'sat-c-secure',
     day: 'saturday',
-    stage: 'compass',
+    stage: 'nexus',
     start: '15:30',
     end: '16:45',
     title: 'Secure Agentic AI',
@@ -395,13 +344,107 @@ export const SESSIONS: Session[] = [
   {
     id: 'sat-c-eval-ws',
     day: 'saturday',
-    stage: 'compass',
+    stage: 'nexus',
     start: '16:45',
     end: '17:45',
     title: 'Workshop: Future of Agent Evaluation',
     kind: 'workshop',
     tags: ['evals'],
     summary: 'Deep-dive workshop on the future of agent evaluation.',
+  },
+
+  // ——— Saturday Compass (Enterprise / Evals / Math / Omnigent) ———
+  // Note: on the RDI site this block is currently under the mislabeled "Atlas - Sunday" tab.
+  {
+    id: 'sat-n-enterprise',
+    day: 'saturday',
+    stage: 'compass',
+    start: '10:00',
+    end: '12:10',
+    title: 'Enterprise AI (Compass)',
+    kind: 'workshop',
+    tags: ['enterprise', 'evals', 'career'],
+    mustSeeFor: ['enterprise'],
+    summary:
+      'Ironclad, AI21, Microsoft, Snorkel, Retool, Scaled Cognition + Ema “AI employees” workshop. Compass Stage (MLK Pauley East).',
+    talks: [
+      { speaker: 'Sunita Verma', role: 'CTO, Ironclad', title: 'Rate Limiter on AI Adoption Is Organizational' },
+      { speaker: 'Ori Goshen', role: 'AI21', title: 'Self Optimizing Agents' },
+      { speaker: 'Rene Pajta', role: 'Microsoft', title: 'The Enterprise Version of the One-Person Unicorn' },
+      { speaker: 'Vincent Sunn Chen', role: 'Snorkel AI', title: 'Benchmarking Agents' },
+      { speaker: 'David Hsu', role: 'Retool', title: 'Governance Is the Bottleneck to AI' },
+      { speaker: 'Dan Klein', role: 'UC Berkeley; Scaled Cognition', title: 'Superintelligence vs. Super-Reliability' },
+      { speaker: 'Ema workshop', title: 'From Assistants to AI Employees' },
+    ],
+  },
+  {
+    id: 'sat-n-evals',
+    day: 'saturday',
+    stage: 'compass',
+    start: '13:00',
+    end: '13:45',
+    title: 'Agent Evaluation & Benchmarks',
+    kind: 'talks',
+    tags: ['evals', 'enterprise'],
+    mustSeeFor: ['evals'],
+    summary: 'LLMArena, IBM, Scale AI, Redis on evals-first agent reliability.',
+    talks: [
+      { speaker: 'Anastasios Angelopoulos', role: 'LLMArena', title: 'Agent Arena: Causal Evaluations' },
+      { speaker: 'Michal Shmueli-Scheuer', role: 'IBM Research', title: 'Ready for General Agents?' },
+      { speaker: 'Priya Ponnapalli', role: 'Scale AI', title: 'Evals-First Approach' },
+      { speaker: 'Srijith Rajamohan', role: 'Redis', title: 'Spec-Driven Agents' },
+    ],
+  },
+  {
+    id: 'sat-n-math',
+    day: 'saturday',
+    stage: 'compass',
+    start: '13:45',
+    end: '14:15',
+    title: 'AI for Math',
+    kind: 'talks',
+    tags: ['science', 'foundations'],
+    summary: 'Long-horizon sparse-reward tasks and math/software alignment.',
+    talks: [
+      {
+        time: '13:45',
+        speaker: 'Sergei Gukov',
+        role: 'AIM; Caltech',
+        title: 'The Future of AI for Long-Horizon and Sparse-Reward Tasks',
+      },
+      {
+        time: '14:00',
+        speaker: 'Lijie Chen',
+        role: 'OpenAI',
+        title: 'The Unit Distance Conjecture and AI for Math',
+      },
+      {
+        time: '14:00',
+        speaker: 'Vijay Ganesh',
+        role: 'Georgia Tech',
+        title: 'Semantic Alignment Models for Math and Software Engineering',
+      },
+    ],
+  },
+  {
+    id: 'sat-n-databricks',
+    day: 'saturday',
+    stage: 'compass',
+    start: '14:15',
+    end: '15:15',
+    title: 'Workshop: Omnigent — A Meta Harness for AI Agents by Databricks',
+    kind: 'workshop',
+    tags: ['data-platforms', 'developer-platforms', 'enterprise'],
+    mustSeeFor: ['data-platforms'],
+    summary:
+      'Real workshop on the official schedule (2:15–3:15). Compass Stage — Enterprise/Math Saturday track (MLK Pauley East), not Nexus.',
+    talks: [
+      {
+        speaker: 'Aravind Segu',
+        role: 'Software Engineer, Databricks',
+        title: 'Omnigent - A Meta Harness for AI Agents',
+      },
+    ],
   },
 
   // ——— Sunday Plenary ———
@@ -480,6 +523,11 @@ export const SESSIONS: Session[] = [
     talks: [
       { speaker: 'Richard Socher', role: 'Recursive Superintelligence', title: 'The Eureka Machine' },
       { speaker: 'Ed Chi', role: 'Google DeepMind', title: 'Future of Personalized Universal Agents' },
+      {
+        speaker: 'Ekin Dogus Cubuk',
+        role: 'Periodic Labs',
+        title: 'Combining Experiments, LLMs, and Theory to Discover Quantum Materials',
+      },
       { speaker: 'Andi Peng', role: 'Humans&', title: 'Collaborative AI in the Era of Agents' },
       { speaker: 'Igor Babuschkin', role: 'River AI', title: 'Personal AI and Continual Learning' },
     ],
@@ -495,6 +543,12 @@ export const SESSIONS: Session[] = [
     tags: ['developer-platforms', 'infrastructure'],
     mustSeeFor: ['developer-platforms'],
     summary: 'Linux Foundation / PyTorch, Fireworks, Daytona, Agentic AI Foundation.',
+    talks: [
+      { speaker: 'Matt White', role: 'Linux Foundation / PyTorch Foundation', title: 'Panel' },
+      { speaker: 'Dima Dmytro Dzhulgakov', role: 'Fireworks AI', title: 'Panel' },
+      { speaker: 'Ivan Burazin', role: 'Daytona', title: 'Panel' },
+      { speaker: 'Mazin Gilbert', role: 'Agentic AI Foundation & Linux Foundation', title: 'Panel' },
+    ],
   },
   {
     id: 'sun-p-finance',
@@ -578,7 +632,7 @@ export const SESSIONS: Session[] = [
     summary: 'Memory for long-horizon agents, RSI optimization, Linux Foundation open stack workshop.',
   },
 
-  // ——— Sunday Nexus / Compass parallel (Sunday Nexus content from scrape maps to enterprise/evals tracks)
+  // ——— Sunday Compass (no Nexus on Sunday — official livestream lists Plenary / Atlas / Compass only)
   {
     id: 'sun-c-safety',
     day: 'sunday',

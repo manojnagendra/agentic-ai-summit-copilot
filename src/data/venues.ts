@@ -66,23 +66,26 @@ export const VENUES: Record<
   },
   'zellerbach-playhouse': {
     name: 'Zellerbach Playhouse',
-    blurb: 'Nexus Stage — technical deep dives and workshops.',
+    blurb: 'Nexus Stage — Saturday science, coding/web agents, and secure-agent tracks.',
     walkFromSproul: 'Same Zellerbach complex as Plenary (~2 min)',
-    tips: ['Poster session nearby', 'Easy hop from Plenary between blocks'],
+    tips: ['Poster session nearby', 'Easy hop from Plenary between blocks', 'No Nexus programming on Sunday'],
     mapsQuery: 'Zellerbach Playhouse, UC Berkeley, Berkeley, CA',
   },
   'mlk-pauley-west': {
     name: 'MLK Jr. Building — Pauley West (2/F)',
-    blurb: 'Atlas Stage — frameworks, enterprise, systems tracks.',
+    blurb: 'Atlas Stage — foundations, robotics, frameworks, and Sunday AI systems.',
     walkFromSproul: '~3–5 min across Lower Sproul Plaza',
     tips: ['Check-in at MLK entrance', 'Catering nearby on plaza'],
     mapsQuery: 'Martin Luther King Jr. Student Union, UC Berkeley, Berkeley, CA',
   },
   'mlk-pauley-east': {
     name: 'MLK Jr. Building — Pauley East (2/F)',
-    blurb: 'Compass Stage — safety, evals, applied industry tracks.',
+    blurb: 'Compass Stage — Saturday enterprise/math/Omnigent; Sunday safety & evals.',
     walkFromSproul: '~3–5 min; same building as Atlas',
-    tips: ['Atlas ↔ Compass is a quick indoor hop', 'Good overflow if Plenary is full'],
+    tips: [
+      'Atlas ↔ Compass is a quick indoor hop',
+      'Omnigent Meta Harness (Sat 2:15) is here — not Nexus',
+    ],
     mapsQuery: 'Martin Luther King Jr. Student Union, UC Berkeley, Berkeley, CA',
   },
   'alumni-house': {

@@ -28,7 +28,7 @@ function localAnswer(message: string, profile: Profile): string {
     return [
       'Saturday focus for your profile:',
       ...items.map((s) => `• ${s!.start} ${s!.title} (${s!.stage})`),
-      'Watch for Dan Roth (data), capital markets panel, and Databricks Omnigent if you can leave Plenary.',
+      'Watch for Dan Roth (data), capital markets panel, and Databricks Omnigent on Compass (not Nexus) at 2:15 if you can leave Plenary.',
     ].join('\n')
   }
 
